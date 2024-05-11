@@ -1,0 +1,11 @@
+## TERRAFORM IGNORES
+# Compiled files
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+terraform.plan
+
+# Module directory
+.terraform/
+.terragrunt-cache/
+.terraform.lock.hcl
