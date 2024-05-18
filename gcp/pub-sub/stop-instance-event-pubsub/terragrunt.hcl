@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  source = "git::git@github.com:Console-Core/terragrunt-modules.git//terragrunt-modules/gcp/generic-pubsub?ref=58aa069"
+  source = "git::git@github.com:WilliamDJR/terragrunt-modules.git//gcp/generic-pubsub?ref=main"
 
   extra_arguments "parent_vars" {
     commands = ["plan", "destroy"]
@@ -13,7 +13,6 @@ terraform {
 inputs = {
   product_name = "stop-instance"
   name         = "event"
-  env_name     = "dev"
   topic_publisher_service_accounts = [
     
   ]

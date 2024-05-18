@@ -1,9 +1,10 @@
-include {
+include "gcp" {
   path = find_in_parent_folders()
+  expose = true
 }
 
 terraform {
-  source = "git::git@github.com:iixlabs/yog-terraform-modules.git//terragrunt-modules/gcp/gcs-storage-bucket?ref=master"
+  source = "git::git@github.com:WilliamDJR/terragrunt-modules.git//gcp/gcs-storage-bucket?ref=main"
 
   extra_arguments "parent_vars" {
     commands = ["plan", "destroy"]
@@ -12,8 +13,7 @@ terraform {
 }
 
 inputs = {
-  region      = "asia-east1"
-  bucket_name = "gcf-sources-asia-east1"
+  bucket_name = "gcf-sources-${include.gcp.inputs.region}"
   bucket_use  = "function_code_storage"
   bucket_storage_class = "STANDARD"
 }
